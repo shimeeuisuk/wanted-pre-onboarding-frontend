@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css");
+
+:root {
+  /* color */
+  --org: #ff805c;
+  --grn: #8aae92;
+  --blk: #3a3a3a;
+  --liblk: #626262;
+  --grey0: #f8f9fa;
+  --grey1: #f1f3f5;
+
+  /* fonts */
+  --point: "IBM Plex Sans", sans-serif;
+  --main: "Pretendard", sans-serif;
+  --mono: "Fira Code", sans-serif;
+
+  /* size */
+  --xs: 10px;
+  --s: 12px;
+  --reg: 15px;
+  --l: 20px;
+  --xl: 30px;
+  --xxl: 50px;
+  --xxxl: 100px;
+}
