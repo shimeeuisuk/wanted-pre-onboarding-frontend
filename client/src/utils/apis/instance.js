@@ -2,15 +2,16 @@ import axios from "axios";
 import { getToken } from "../localstorage";
 
 function Interceptors(instance) {
-  instance.Interceptors.request.use(
+  instance.interceptors.request.use(
     (config) => {
-      const { access_token } = getToken();
+      const access_token = getToken();
       if (config.headers && access_token)
         config.headers.Authorization = `Bearer ${access_token}`;
       return config;
     },
     (error) => Promise.reject(error)
   );
+  return instance;
 }
 
 //토큰이 필요한 instance
@@ -20,8 +21,9 @@ const authCreateInstance = () => {
     timeout: 2000,
     headers: { "Content-Type": "application/json" },
   });
-  return Interceptors(instance, true);
+  return Interceptors(instance);
 };
+
 const authRequest = authCreateInstance();
 
 //토큰이 필요없는 instance
