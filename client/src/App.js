@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {token ? <Navigate to="/todo" /> : <Navigate to="/" />}
+      {token ?? <Navigate to="/todo" />}
       <Routes>
         <Route path="/" ren element={<SignUp />}></Route>
         <Route path="/login" element={<LogIn />}></Route>
