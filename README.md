@@ -204,3 +204,41 @@ function Interceptors(instance) {
   return instance;
 }
 ```
+
+### 불필요한 랜더링 방지
+
+이번 프로젝트에서 input에 값을 입력할 때 상태변화에 따른 리랜더링을 방지하기 위하여 useRef()를 사용하였다.
+</br>
+리액트는 virtual DOM 을 사용하기 때문에 특정 DOM 을 선택할때 Vanilla JS 에서 사용하던 방식인 querySelector 를 사용하는 방식을 지양해야 한다. 이를 대체하기 위해 useRef 를 사용하였다.
+</br>
+input 컴포넌트가 재사용 됨에 따라 useRef를 props로 넘겨주어야 했는데 이 때, props를 받는 하위 컴포넌트에서 그냥 변수로 받아지지 않고 forwardRef()로 한번 감싸주어야 했다.
+
+````js
+
+// 상위 컴포넌트
+const LoginForm = () => {
+
+const emailRef = useRef(null);
+
+return( <>
+         <Input
+          ```생략```
+          ref={emailRef}/>
+        </>
+)}
+
+//하위 input 컴포넌트
+const Input = forwardRef(
+  (props, ref) => {
+    return (
+      <>
+        <Inputs
+        ```생략```
+          ref={ref}
+        ```생략``` />
+      </>
+    );
+  }
+);
+
+````
