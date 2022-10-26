@@ -1,5 +1,4 @@
-import { Suspense, lazy, useState } from "react";
-import { Route, Router, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import GlobalStyle from "./styles/globalstyles";
 import "./styles/root.css";
